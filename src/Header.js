@@ -8,6 +8,7 @@ import { useStateValue } from './StateProvider';
 
 function Header() {
     const [{basket}, dispatch] = useStateValue();
+    
     return (
         <div className='header'>
             <Link to='/'>
