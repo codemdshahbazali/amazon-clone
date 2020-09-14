@@ -2,27 +2,37 @@ import React from 'react';
 import './BasketItem.css';
 import { useStateValue } from './StateProvider';
 
-function BasketItem({basket}) {
+function BasketItem({basketItem}) {
+    const [{basket}, dispatch] = useStateValue();
+
+    const removeFromBasket = () => {
+        console.log('Inside Remove From Basket');
+        dispatch({
+            type: 'REMOVE_FROM_BASKET',
+            id: basketItem.id
+        })
+    }
+
     return (
         <div className="basket-item">
             <div className="basket-item__container">
                 <div className="basket-item__ProductImage">
-                    <img src={basket.image} alt=""/>
+                    <img src={basketItem.image} alt=""/>
                 </div>
                 <div className="basket-item__info">
-                    <p>{basket.title}</p>
+                    <p>{basketItem.title}</p>
                     <p className="basket-item__price">
                         <small>₹</small>
-                        <strong>{basket.price}</strong>
+                        <strong>{basketItem.price}</strong>
                     </p>
                     <div className="basket-item__rating">
-                        {Array(basket.rating)
+                        {Array(basketItem.rating)
                         .fill()
                         .map((_, i) => (
                             <span role="img">⭐</span>
                         ))}
                     </div>
-                    <button>Remove from basket</button>
+                    <button onClick={removeFromBasket}>Remove from basket</button>
                 </div>
             </div>
         </div>

@@ -21,7 +21,7 @@ function Checkout() {
                         Your Shopping Basket
                     </h2>
                     {basket.map((item) => {
-                        return <BasketItem basket={item} key={item.id}/>
+                        return <BasketItem basketItem={item} key={item.id}/>
                     })}
                 </div>
             </div>
