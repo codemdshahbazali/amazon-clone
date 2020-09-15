@@ -38,11 +38,11 @@ function Header() {
                         <span className='header__optionLineTwo'>{user? 'Sign Out': 'Sign In'}</span>
                     </div>
                 </Link>
-                <div className='header__option'>
+                <div className='header__option hide__smallScreen'>
                     <span className='header__optionLineOne'>Return</span>
                     <span className='header__optionLineTwo'>& Orders</span>
                 </div>
-                <div className='header__option'>
+                <div className='header__option hide__smallScreen'>
                 <span className='header__optionLineOne'>Your</span>
                     <span className='header__optionLineTwo'>Prime</span>
                 </div>

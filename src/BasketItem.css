@@ -10,7 +10,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 5px;
-    width: 700px;
+    width: 43.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,4 +34,24 @@
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
     padding: 10px;
+}
+
+@media only screen and (max-width: 430px) {
+    .basket-item__container {
+        flex-direction: column;
+    }
+
+    .basket-item__ProductImage {
+        width: 100%;
+    }
+
+    .basket-item__info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .basket-item__info button {
+        align-self: center;
+        font-size: 0.9rem;
+    }
 }

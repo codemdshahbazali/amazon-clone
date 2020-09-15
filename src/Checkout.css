@@ -19,3 +19,15 @@
 .checkout__left {
     flex: 1;
 }
+
+@media only screen and (max-width: 430px) {
+    .checkout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .checkout__left {
+        order: 2;
+        margin-top: 0.625rem;
+    }
+}

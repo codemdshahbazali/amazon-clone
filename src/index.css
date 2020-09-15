@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+html {
+  font-size:16px;
+}
+
 body {
   background-color: rgba(234, 237, 237);
   margin: 0;
@@ -15,4 +19,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media only screen and (max-width: 430px) {
+  html {
+      font-size: 13px;
+  }
 }

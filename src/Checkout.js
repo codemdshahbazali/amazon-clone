@@ -1,12 +1,12 @@
 import React from 'react';
 import BasketItem from './BasketItem';
-import './Checkout.css';
 import { useStateValue } from './StateProvider';
 import Subtotal from './Subtotal';
+import './Checkout.css';
 
 function Checkout() {
     const [{basket}, dispatch] = useStateValue();
-    console.log("Checkout Page ==>", basket)
+    console.log("Checkout Page ==>", basket);
     
     return (
         <div className="checkout">
@@ -32,4 +32,4 @@ function Checkout() {
     )
 }
 
-export default Checkout
+export default Checkout;
