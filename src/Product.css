@@ -19,7 +19,8 @@
 
 .product__info {
     margin-bottom: 1rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .product > img {
@@ -35,10 +36,23 @@
     margin-top: 0.625rem;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
-    padding: 3px;
+    padding: 5px;
     font-size: 0.9rem;
 }
 
 .login__signIn {
     margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 430px) {
+    .product__info {
+        margin-bottom: 0.2rem;
+    }
+    .product > img {
+        margin-bottom: .2rem;
+    }
+
+    .product > button {
+        margin-top: 0.3rem;
+    }
 }
