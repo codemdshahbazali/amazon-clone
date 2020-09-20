@@ -6,7 +6,6 @@ function BasketItem({basketItem}) {
     const [{basket}, dispatch] = useStateValue();
 
     const removeFromBasket = () => {
-        console.log('Inside Remove From Basket');
         dispatch({
             type: 'REMOVE_FROM_BASKET',
             id: basketItem.id

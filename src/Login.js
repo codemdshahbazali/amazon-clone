@@ -10,15 +10,11 @@ function Login() {
 
     const signIn = (e) => {
         e.preventDefault();
-        console.log("Clicked signin");
-        console.log("email: " + email)
-        console.log("password: " + password)
 
         //firebase magic
         auth
         .signInWithEmailAndPassword(email, password)
         .then((auth) => {
-            console.log("Auth", auth);
             if(auth) {
                 history.push('/');
             }
@@ -29,13 +25,11 @@ function Login() {
 
     const register = (e) => {
         e.preventDefault();
-        console.log("Clicked Register");
 
         //firebase magic
         auth
         .createUserWithEmailAndPassword(email, password)
         .then((auth) => {
-            console.log(auth);
             if (auth) {
                 history.push('/');
             }
