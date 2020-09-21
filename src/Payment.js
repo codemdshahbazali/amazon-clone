@@ -1,9 +1,10 @@
-import userEvent from '@testing-library/user-event';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BasketItem from './BasketItem';
 import './Payment.css';
 import { useStateValue } from './StateProvider';
+import CurrencyFormat from 'react-currency-format';
+import { getBasketTotal } from './reducer';
 
 // Setting up the stripe payment
 import {CardElement, useElements, useStripe} from '@stripe/react-stripe-js';
@@ -11,6 +12,26 @@ import {CardElement, useElements, useStripe} from '@stripe/react-stripe-js';
 
 function Payment() {
     const [{basket, user}, dispatch] = useStateValue();
+
+    //handling payment
+    const stripe = useStripe();
+    const elements = useElements();
+
+    const [error, setError] = useState(null);
+    const [disabled, setDisabled] = useState(true);
+    const [processing, setProcessing] = useState("");
+    const [succeeded, setSucceeded] = useState(true);
+
+    const handleSubmit = () => {
+        //will do the fancy stripe stuff
+    }
+
+    const handleChange = (e) => {
+        //Listen for changes inside the card element
+        //and display any errors as the customer types their card details
+        setDisabled(e.empty);
+        setError(e.error ? e.error.message : "");
+    }
 
     return (
         <div className="payment">
@@ -47,8 +68,30 @@ function Payment() {
                     </div>
                     <div className="payment__details">
                         {/* String magic will happen here */}
-                        <form>
-                            <CardElement />
+                        <form onSubmit={handleSubmit}>
+                            <CardElement onChnage={handleChange}/>
+
+                            <div className="payment__priceContainer">
+                                <CurrencyFormat
+                                    renderText={(value) => (
+                                        <>
+                                        <h3>Order Total: {value}</h3>
+                                        </>
+                                    )}
+                                    decimalScale={2}
+                                    // value={basket.reduce((acc, cur) => acc + cur.price, 0)} //part of homework
+                                    value={getBasketTotal(basket)}
+                                    displayType={"text"}
+                                    thousandSeparator={true}
+                                    prefix={"₹"}
+                                />
+                                <button disabled={processing || disabled || succeeded}>
+                                    <span>{processing ? <p>Processing</p>: "Buy Now"}</span>
+                                </button>
+                            </div>
+
+                            {/* Error */}
+                            {error && <div>{error}</div>}
                         </form>
                     </div>
                 </div>
