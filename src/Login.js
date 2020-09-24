@@ -51,7 +51,7 @@ function Login() {
                 </Link>
 
                 <div className="login_form">
-                    <form action="">
+                    <form className="login__formElement" action="">
                         <h1 className="login__title">Sign-in</h1>
                         <label htmlFor="email">E-mail</label>
                         <input type="text" className="email" value={email} onChange={e => setEmail(e.target.value)}/>

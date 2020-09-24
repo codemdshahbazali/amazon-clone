@@ -1,6 +1,7 @@
 import React from 'react';
 import './Product.css';
 import { useStateValue } from './StateProvider';
+import { v1 as uuidv1 } from 'uuid';
 
 function Product({ id, title, image, price, rating}) {
     const [{basket}, dispatch] = useStateValue();
@@ -31,7 +32,7 @@ function Product({ id, title, image, price, rating}) {
                     {Array(rating)
                     .fill()
                     .map((_, i) => (
-                        <span role="img">⭐</span>
+                        <span key={uuidv1()} role="img">⭐</span>
                     ))}
                 </div>
             </div>

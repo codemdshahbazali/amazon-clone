@@ -2,8 +2,16 @@
     display: flex;
     justify-content: center;
     /* align-items: center; */
-    border-bottom: 1px solid lightgrey;
+    /* border-bottom: 1px solid lightgrey; */
     
+}
+
+.basket-item {
+    margin: 10px;
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.26);
+    border-radius: 30px;
+    padding: 10px;
+    border: 2px solid lightgrey;
 }
 
 .basket-item__ProductImage {
