@@ -10,7 +10,6 @@ import axios from './axios';
 import { db } from './firebase';
 import { v1 as uuidv1 } from 'uuid';
 
-
 // Setting up the stripe payment
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 
@@ -38,11 +37,9 @@ function Payment() {
           //Stripe accepts the total in a currency sub-units
           url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
         });
-  
+
         setClientSecret(response.data.clientSecret);
-      } catch (error) {
-        alert(error.message);
-      }
+      } catch (error) {}
     };
 
     getClientSecret();

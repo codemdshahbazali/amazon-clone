@@ -19,7 +19,21 @@ const promise = loadStripe(
 );
 
 function App() {
-  const [{}, dispatch] = useStateValue();
+  const [{basket}, dispatch] = useStateValue();
+
+  useEffect(() => {
+    let localData = localStorage.getItem('basket');
+    localData = localData ? JSON.parse(localData) : []; 
+    console.log(localData);
+    dispatch({
+      type: 'INITIALIZE_BASKET',
+      item: localData,
+    });
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('basket', JSON.stringify(basket));
+  }, [basket]);
 
   useEffect(() => {
     //will only run once the app component renders or re-renders
@@ -37,6 +51,10 @@ function App() {
         });
       }
     });
+
+    
+    // localData = localData ? JSON.parse(localData) : []; 
+    // console.log("localstorage", localStorage);
   }, []);
 
   return (

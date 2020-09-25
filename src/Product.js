@@ -1,45 +1,47 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Product.css';
 import { useStateValue } from './StateProvider';
 import { v1 as uuidv1 } from 'uuid';
 
-function Product({ id, title, image, price, rating}) {
-    const [{basket}, dispatch] = useStateValue();
+function Product({ id, title, image, price, rating }) {
+  const [{ basket }, dispatch] = useStateValue();
 
-    const addToBasket = () => {
-        //dispatch the item into the datalayer
-        dispatch({
-            type: "ADD_TO_BASKET",
-            item: {
-                id: id,
-                title: title,
-                image: image,
-                price: price,
-                rating: rating
-            }
-        });
-    }
+  const addToBasket = () => {
+    //dispatch the item into the datalayer
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: {
+        id: uuidv1(),
+        title: title,
+        image: image,
+        price: price,
+        rating: rating,
+      },
+    });
+  };
 
-    return (
-        <div className="product">
-            <div className="product__info">
-                <p>{title}</p>
-                <p className="product__price">
-                    <small>₹</small>
-                    <strong>{price}</strong>
-                </p>
-                <div className="product__rating">
-                    {Array(rating)
-                    .fill()
-                    .map((_, i) => (
-                        <span key={uuidv1()} role="img">⭐</span>
-                    ))}
-                </div>
-            </div>
-            <img src={image} alt=""/>
-            <button onClick={addToBasket}>Add to basket</button>
+  return (
+    <div className='product'>
+      <div className='product__info'>
+        <p>{title}</p>
+        <p className='product__price'>
+          <small>₹</small>
+          <strong>{price}</strong>
+        </p>
+        <div className='product__rating'>
+          {Array(rating)
+            .fill()
+            .map((_, i) => (
+              <span key={uuidv1()} role='img'>
+                ⭐
+              </span>
+            ))}
         </div>
-    )
+      </div>
+      <img src={image} alt='' />
+      <button onClick={addToBasket}>Add to basket</button>
+    </div>
+  );
 }
 
-export default Product
+export default Product;
