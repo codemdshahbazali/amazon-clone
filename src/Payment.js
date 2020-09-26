@@ -104,7 +104,7 @@ function Payment() {
         </h1>
 
         <div className='payment__section'>
-          <div className='payment__title'>
+          <div className='payment__title payment__addTitle'>
             <h3>Delivery Address</h3>
           </div>
           <div className='payment__address'>
@@ -132,7 +132,7 @@ function Payment() {
           <div className='payment__details'>
             {/* String magic will happen here */}
             <form onSubmit={handleSubmit}>
-              <CardElement onChange={handleChange} />
+              <CardElement className="payment__form" onChange={handleChange} />
 
               <div className='payment__priceContainer'>
                 <CurrencyFormat

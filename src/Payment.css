@@ -26,7 +26,8 @@
 }
 
 .payment__address,
-.payment__items, .payment__details {
+.payment__items,
+.payment__details {
   flex: 0.8;
 }
 
@@ -39,10 +40,28 @@
 }
 
 .payment__details > form > div > button {
-    background: #f0c14b;
-    border: 1px solid;
-    margin-top: 10px;
-    border-color: #a88734 #9c7e31 #846a29;
-    color: #111;
-    padding: 10px;
+  background: #f0c14b;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 430px) {
+  .payment__section {
+    flex-direction: column;
+  }
+
+  .payment__addressTitle {
+    margin-right: 15px;
+  }
+
+  .payment__title {
+    margin-bottom: 5px;
+  }
+
+  .payment__form {
+    margin-bottom: 10px;
+  }
 }
